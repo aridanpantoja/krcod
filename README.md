@@ -1,4 +1,4 @@
-<h1>Pet My Link 🐾</h1> 
+<h1>Pet My Link 🐾</h1>
 
 <p>
     <b>Pet My Link is an open-source app for generating QR codes with adorable pet themes. Star the repo if you find it useful ⭐</b>
@@ -11,7 +11,6 @@
 <h2 id="project-overview">Project Overview 📋</h2>
 
 ### Getting Started
-
 
 #### 1. Install required dependencies with pnpm
 
