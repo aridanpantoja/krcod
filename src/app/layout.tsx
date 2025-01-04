@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans as DMSans } from 'next/font/google'
 import './globals.css'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Pet My Link | QR Code generator',
@@ -16,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${dmSans.className} antialiased`}>{children}</body>
+    <html lang="en" className="h-full">
+      <body
+        className={cn(`relative flex h-full antialiased`, dmSans.className)}
+      >
+        {children}
+      </body>
     </html>
   )
 }
