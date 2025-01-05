@@ -1,7 +1,7 @@
+import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { DM_Sans as DMSans } from 'next/font/google'
 import './globals.css'
-import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Pet My Link | QR Code generator',
@@ -19,9 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={cn(`relative flex h-full antialiased`, dmSans.className)}
+        className={cn(
+          `relative flex h-full flex-col antialiased`,
+          dmSans.className,
+        )}
       >
-        {children}
+        <main className="my-16 flex grow items-center justify-center">
+          {children}
+        </main>
       </body>
     </html>
   )
