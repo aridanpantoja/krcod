@@ -1,7 +1,9 @@
+import { Navbar } from '@/components/navbar'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
-import { DM_Sans as DMSans } from 'next/font/google'
 import './globals.css'
+import { WidthWrapper } from '@/components/width-wrapper'
+import { Manrope } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Pet My Link | QR Code generator',
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
     'An open-source app for generating QR codes with adorable pet themes. ',
 }
 
-const dmSans = DMSans({ subsets: ['latin'] })
+const manrope = Manrope({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -21,12 +23,16 @@ export default function RootLayout({
       <body
         className={cn(
           `relative flex h-full flex-col antialiased`,
-          dmSans.className,
+          manrope.className,
         )}
       >
-        <main className="my-16 flex grow items-center justify-center">
-          {children}
+        <Navbar />
+        <main className="mx-auto my-20 w-full max-w-screen-sm grow">
+          <WidthWrapper>
+            <div className="flex flex-col gap-10">{children}</div>
+          </WidthWrapper>
         </main>
+        <footer>Olá</footer>
       </body>
     </html>
   )

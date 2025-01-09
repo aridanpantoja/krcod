@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -10,7 +9,6 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import Image from 'next/image'
-import { QRCodeSVG } from 'qrcode.react'
 import React from 'react'
 
 const COLORS = [
@@ -133,29 +131,6 @@ export function QRCodeForm() {
           </SelectContent>
         </Select>
       </form>
-
-      <div className="w-full rounded-2xl border-2 border-dashed p-2 dark:bg-white">
-        <QRCodeSVG
-          opacity={url ? 1 : 0.25}
-          value={url}
-          size={320}
-          marginSize={2}
-          fgColor={renderColor(color)}
-          imageSettings={{
-            src: `/pets/cute-${pet}.png`,
-            x: undefined,
-            y: undefined,
-            height: 80,
-            width: 80,
-            excavate: true,
-          }}
-          title="Your QR Code in Seconds"
-          level="H"
-          className="mx-auto w-full shrink-0"
-        />
-      </div>
-
-      <Button disabled={!url}>Download QR Code</Button>
     </div>
   )
 }
