@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { WidthWrapper } from '@/components/width-wrapper'
 import { Manrope } from 'next/font/google'
+import { QRCodeProvider } from '@/context/qrcode'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Pet My Link | QR Code generator',
@@ -26,13 +28,15 @@ export default function RootLayout({
           manrope.className,
         )}
       >
-        <Navbar />
-        <main className="mx-auto my-20 w-full max-w-screen-sm grow">
-          <WidthWrapper>
-            <div className="flex flex-col gap-10">{children}</div>
-          </WidthWrapper>
-        </main>
-        <footer>Olá</footer>
+        <QRCodeProvider>
+          <Navbar />
+          <main className="mx-auto my-20 w-full max-w-screen-sm grow">
+            <WidthWrapper>
+              <div className="flex flex-col gap-10">{children}</div>
+            </WidthWrapper>
+          </main>
+          <Footer />
+        </QRCodeProvider>
       </body>
     </html>
   )
