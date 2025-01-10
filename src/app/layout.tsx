@@ -6,6 +6,7 @@ import { WidthWrapper } from '@/components/width-wrapper'
 import { Manrope } from 'next/font/google'
 import { QRCodeProvider } from '@/context/qrcode'
 import { Footer } from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: 'Pet My Link | QR Code generator',
@@ -21,22 +22,28 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body
         className={cn(
           `relative flex h-full flex-col antialiased`,
           manrope.className,
         )}
       >
-        <QRCodeProvider>
-          <Navbar />
-          <main className="mx-auto my-20 w-full max-w-screen-sm grow">
-            <WidthWrapper>
-              <div className="flex flex-col gap-10">{children}</div>
-            </WidthWrapper>
-          </main>
-          <Footer />
-        </QRCodeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+        >
+          <QRCodeProvider>
+            <Navbar />
+            <main className="mx-auto my-20 w-full max-w-screen-sm grow">
+              <WidthWrapper>
+                <div className="flex flex-col gap-10">{children}</div>
+              </WidthWrapper>
+            </main>
+            <Footer />
+          </QRCodeProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
