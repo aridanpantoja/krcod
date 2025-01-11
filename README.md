@@ -1,7 +1,7 @@
-<h1>Pet My Link 🐾</h1>
+<h1>KRCOD</h1>
 
 <p>
-    <b>Pet My Link is an open-source app for generating QR codes with adorable pet themes. Star the repo if you find it useful ⭐</b>
+    <b>KRCOD is a QR Code Generator with a Sleek Notion-Inspired Design. Star the repo if you find it useful ⭐</b>
 </p>
 
 <h2 id="tech-stack">Tech Stack 💻</h2>
@@ -29,7 +29,7 @@ pnpm dev
 If you want to contribute, clone this repo, create your work branch and get your hands dirty!
 
 ```bash
-git clone https://github.com/aridanpantoja/petmylink.git
+git clone https://github.com/aridanpantoja/krcod.git
 ```
 
 ```bash
