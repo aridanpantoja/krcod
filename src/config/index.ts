@@ -4,7 +4,9 @@ const createSiteConfig = () => {
   }
 
   return {
-    name: 'KRCod',
+    name: 'KRCOD',
+    title: 'KRCOD | Generate any QR Code',
+    url: 'https://krcod.com',
     description: 'KRCOD is a tool for create and customize QR Codes.',
     ogImage: 'https://krcod.com/og.jpg',
     links,
