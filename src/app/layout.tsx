@@ -8,6 +8,7 @@ import { QRCodeProvider } from '@/providers/qrcode-provider'
 import { Footer } from '@/components/footer'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { siteConfig } from '@/config'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -68,6 +69,7 @@ export default function RootLayout({
           </QRCodeProvider>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-G21BX6W5D0" />
     </html>
   )
 }
