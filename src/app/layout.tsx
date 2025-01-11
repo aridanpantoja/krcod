@@ -12,6 +12,29 @@ import { siteConfig } from '@/config'
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  authors: [{ name: 'Aridan Pantoja', url: 'https://aridan.dev' }],
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    images: [
+      {
+        url: siteConfig.ogImage,
+      },
+    ],
+  },
+  icons: '/favicon.ico',
+  metadataBase: new URL(siteConfig.url),
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+      },
+    ],
+  },
 }
 
 const manrope = Manrope({ subsets: ['latin'] })
