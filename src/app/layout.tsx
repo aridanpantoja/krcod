@@ -3,15 +3,15 @@ import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import './globals.css'
 import { WidthWrapper } from '@/components/width-wrapper'
-import { Manrope } from 'next/font/google'
-import { QRCodeProvider } from '@/context/qrcode'
+import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
+import { QRCodeProvider } from '@/providers/qrcode-provider'
 import { Footer } from '@/components/footer'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/providers/theme-provider'
+import { siteConfig } from '@/config'
 
 export const metadata: Metadata = {
-  title: 'Pet My Link | QR Code generator',
-  description:
-    'An open-source app for generating QR codes with adorable pet themes. ',
+  title: siteConfig.title,
+  description: siteConfig.description,
 }
 
 const manrope = Manrope({ subsets: ['latin'] })

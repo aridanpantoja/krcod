@@ -1,10 +1,10 @@
 'use client'
 
-import { useQRCodeContext } from '@/context/qrcode'
+import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { QRCodeSVG } from 'qrcode.react'
 
 export function QRCodePreview() {
-  const { url, color, renderColor } = useQRCodeContext()
+  const { url, color, renderColor, qrCodeRef, image } = useQRCodeContext()
 
   return (
     <>
@@ -12,22 +12,20 @@ export function QRCodePreview() {
         <div className="flex w-full items-center justify-center rounded-2xl border-2 border-dashed p-2 dark:bg-white md:w-fit">
           <QRCodeSVG
             id="qr-code"
-            opacity={url ? 1 : 0.25}
+            ref={qrCodeRef as React.RefObject<SVGSVGElement>}
+            opacity={url ? 1 : 0.5}
             marginSize={1}
-            size={208}
+            size={512}
             value={url}
             fgColor={renderColor(color)}
-            // imageSettings={{
-            //   src: `/pets/cute-dog.png`,
-            //   x: undefined,
-            //   y: undefined,
-            //   height: 64,
-            //   width: 64,
-            //   excavate: true,
-            // }}
+            imageSettings={
+              image.src
+                ? { src: image.src, height: 108, width: 108, excavate: true }
+                : undefined
+            }
             title="Your QR Code in Seconds"
             level="H"
-            className="h-full"
+            className="h-full w-full"
           />
         </div>
       </div>

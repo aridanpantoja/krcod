@@ -2,14 +2,20 @@
 
 import React from 'react'
 
+type ImageProps = {
+  src: string
+  name: string
+}
+
 type QrCodeContextProps = {
   url: string
   setUrl: React.Dispatch<React.SetStateAction<string>>
   color: string
   setColor: (color: string) => void
-  logo: string
-  setLogo: (logo: string) => void
+  image: ImageProps
+  setImage: (image: ImageProps) => void
   renderColor: (color: string) => string
+  qrCodeRef: React.RefObject<SVGSVGElement | null>
 }
 
 const QrCodeContext = React.createContext<QrCodeContextProps | undefined>(
@@ -34,7 +40,11 @@ function renderColor(color: string) {
 export function QRCodeProvider({ children }: { children: React.ReactNode }) {
   const [url, setUrl] = React.useState('')
   const [color, setColor] = React.useState('slate')
-  const [logo, setLogo] = React.useState('')
+  const [image, setImage] = React.useState<ImageProps>({
+    src: '',
+    name: '',
+  })
+  const qrCodeRef = React.useRef<SVGSVGElement>(null)
 
   return (
     <QrCodeContext.Provider
@@ -43,9 +53,10 @@ export function QRCodeProvider({ children }: { children: React.ReactNode }) {
         setUrl,
         color,
         setColor,
-        logo,
-        setLogo,
+        image,
+        setImage,
         renderColor,
+        qrCodeRef,
       }}
     >
       {children}

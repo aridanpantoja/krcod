@@ -18,9 +18,10 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { COLORS } from '@/config'
-import { useQRCodeContext } from '@/context/qrcode'
+import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { Button, buttonVariants } from './ui/button'
 import { Textarea } from './ui/textarea'
+import { ImageInput } from '@/components/image-input'
 
 export function QRCodeForm() {
   const { color, setColor, url, setUrl, renderColor } = useQRCodeContext()
@@ -36,7 +37,9 @@ export function QRCodeForm() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add information for the QR Code</DialogTitle>
-          <DialogDescription>Enter your text or website here</DialogDescription>
+          <DialogDescription>
+            Enter the information you want to include in the QR Code.
+          </DialogDescription>
         </DialogHeader>
 
         <div className="flex w-full flex-col gap-4">
@@ -76,6 +79,11 @@ export function QRCodeForm() {
                 ))}
               </SelectContent>
             </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="image-input">Select your logo</Label>
+            <ImageInput />
           </div>
 
           <DialogClose className={buttonVariants({ className: 'w-full' })}>

@@ -1,20 +1,19 @@
+import { Logo } from '@/components/icons/logo'
 import { QRCodeForm } from '@/components/qrcode-form'
 import { QRCodeOptions } from '@/components/qrcode-options'
 import { QRCodePreview } from '@/components/qrcode-preview'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config'
-import { QrCode } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Home() {
   return (
     <>
       <section>
-        <div className="flex w-full flex-col items-center justify-center gap-5 text-pretty text-center md:items-start md:text-start">
-          <div className="flex w-fit items-center justify-center rounded-full border bg-foreground p-4 text-background">
-            <QrCode className="size-6" />
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight lg:text-4xl">
+        <div className="flex w-full flex-col items-center justify-center text-pretty text-center md:items-start md:text-start">
+          <Logo className="size-24" />
+
+          <h1 className="mb-3 mt-7 text-3xl font-extrabold tracking-tight md:mb-5 md:mt-10 lg:text-4xl">
             KRCOD
           </h1>
           <p className="leading-7 text-muted-foreground">
@@ -31,7 +30,7 @@ export default function Home() {
 
       <Separator />
 
-      <section className="flex flex-col gap-8 min-[520px]:flex-row">
+      <section className="grid grid-cols-1 gap-8 min-[520px]:grid-cols-2">
         <div className="flex w-full flex-col justify-center gap-3">
           <h2 className="font-bold">Steps</h2>
           <div className="space-y-1">

@@ -1,12 +1,14 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { useQRCodeContext } from '@/context/qrcode'
+import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { saveAs } from 'file-saver'
 import { toPng } from 'html-to-image'
+import { useReactToPrint } from 'react-to-print'
 
 export function QRCodeOptions() {
-  const { url } = useQRCodeContext()
+  const { url, qrCodeRef } = useQRCodeContext()
+  const reactToPrintFn = useReactToPrint({ contentRef: qrCodeRef })
 
   function handleDownload(type: 'png' | 'svg') {
     const qrCodeElem = document.getElementById('qr-code')
@@ -31,10 +33,16 @@ export function QRCodeOptions() {
 
   return (
     <>
-      <Button variant="notion" size="notion" disabled={!url} onClick={() => {}}>
+      <Button
+        variant="notion"
+        size="notion"
+        disabled={!url}
+        onClick={() => reactToPrintFn()}
+      >
         <div>🖨️</div>
         <div>Print QR Code</div>
       </Button>
+
       <Button
         variant="notion"
         size="notion"
