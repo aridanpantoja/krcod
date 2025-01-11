@@ -1,15 +1,43 @@
+import { Navbar } from '@/components/navbar'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
-import { DM_Sans as DMSans } from 'next/font/google'
 import './globals.css'
+import { WidthWrapper } from '@/components/width-wrapper'
+import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
+import { QRCodeProvider } from '@/providers/qrcode-provider'
+import { Footer } from '@/components/footer'
+import { ThemeProvider } from '@/providers/theme-provider'
+import { siteConfig } from '@/config'
 
 export const metadata: Metadata = {
-  title: 'Pet My Link | QR Code generator',
-  description:
-    'An open-source app for generating QR codes with adorable pet themes. ',
+  title: siteConfig.title,
+  description: siteConfig.description,
+  authors: [{ name: 'Aridan Pantoja', url: 'https://aridan.dev' }],
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    images: [
+      {
+        url: siteConfig.ogImage,
+      },
+    ],
+  },
+  icons: '/favicon.ico',
+  metadataBase: new URL(siteConfig.url),
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+      },
+    ],
+  },
 }
 
-const dmSans = DMSans({ subsets: ['latin'] })
+const manrope = Manrope({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -17,16 +45,28 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body
         className={cn(
           `relative flex h-full flex-col antialiased`,
-          dmSans.className,
+          manrope.className,
         )}
       >
-        <main className="my-16 flex grow items-center justify-center">
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+        >
+          <QRCodeProvider>
+            <Navbar />
+            <main className="mx-auto my-20 w-full max-w-screen-sm grow">
+              <WidthWrapper>
+                <div className="flex flex-col gap-10">{children}</div>
+              </WidthWrapper>
+            </main>
+            <Footer />
+          </QRCodeProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
