@@ -24,3 +24,24 @@ export function setLocalStorage(storageKey: string, value: string) {
     return null
   }
 }
+
+export function renderColor(color: string) {
+  switch (color) {
+    case 'slate':
+      return '#020617'
+    case 'green':
+      return '#15803d'
+    case 'violet':
+      return '#6d28d9'
+    case 'red':
+      return '#b91c1c'
+    case 'orange':
+      return '#c2410c'
+    case 'blue':
+      return '#1d4ed8'
+    case 'pink':
+      return '#be185d'
+    default:
+      return '#020617'
+  }
+}

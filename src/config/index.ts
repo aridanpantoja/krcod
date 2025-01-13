@@ -16,20 +16,11 @@ const createSiteConfig = () => {
 export const siteConfig = createSiteConfig()
 
 export const COLORS = [
-  {
-    name: 'Red',
-    value: 'red',
-  },
-  {
-    name: 'Green',
-    value: 'green',
-  },
-  {
-    name: 'Violet',
-    value: 'violet',
-  },
-  {
-    name: 'Slate',
-    value: 'slate',
-  },
+  'Slate',
+  'Green',
+  'Violet',
+  'Red',
+  'Orange',
+  'Blue',
+  'Pink',
 ]

@@ -1,10 +1,11 @@
 'use client'
 
+import { renderColor } from '@/lib/utils'
 import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { QRCodeSVG } from 'qrcode.react'
 
 export function QRCodePreview() {
-  const { url, color, renderColor, qrCodeRef, image } = useQRCodeContext()
+  const { url, color, qrCodeRef, image } = useQRCodeContext()
 
   return (
     <>

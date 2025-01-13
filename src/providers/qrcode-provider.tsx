@@ -14,28 +14,12 @@ type QrCodeContextProps = {
   setColor: (color: string) => void
   image: ImageProps
   setImage: (image: ImageProps) => void
-  renderColor: (color: string) => string
   qrCodeRef: React.RefObject<SVGSVGElement | null>
 }
 
 const QrCodeContext = React.createContext<QrCodeContextProps | undefined>(
   undefined,
 )
-
-function renderColor(color: string) {
-  switch (color) {
-    case 'red':
-      return '#b91c1c'
-    case 'green':
-      return '#15803d'
-    case 'violet':
-      return '#6d28d9'
-    case 'slate':
-      return '#020617'
-    default:
-      return '#020617'
-  }
-}
 
 export function QRCodeProvider({ children }: { children: React.ReactNode }) {
   const [url, setUrl] = React.useState('')
@@ -55,7 +39,6 @@ export function QRCodeProvider({ children }: { children: React.ReactNode }) {
         setColor,
         image,
         setImage,
-        renderColor,
         qrCodeRef,
       }}
     >
