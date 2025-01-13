@@ -40,14 +40,14 @@ export function CookieBanner() {
 
   return (
     <Card className="fixed bottom-6 left-6 right-6 z-50 max-w-96">
-      <CardHeader className="xs:pb-6 pb-4">
-        <CardDescription className="xs:text-sm xs:text-start text-center text-xs">
+      <CardHeader className="pb-4 xs:pb-6">
+        <CardDescription className="text-center text-xs xs:text-start xs:text-sm">
           We use cookies to enhance your experience. Choose &#39;Accept all&#39;
           to allow all cookies or &#39;Only necessary&#39; for essential ones.
         </CardDescription>
       </CardHeader>
       <CardFooter>
-        <div className="xs:flex-row flex w-full flex-col gap-3">
+        <div className="flex w-full flex-col gap-3 xs:flex-row">
           <Button
             onClick={() => setCookieConsent(true)}
             size="sm"
