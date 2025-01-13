@@ -10,6 +10,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
 import './globals.css'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -72,7 +73,9 @@ export default function RootLayout({
         <CookieBanner />
       </body>
 
-      <GoogleAnalytics measurementId="G-G21BX6W5D0" />
+      <Suspense fallback={null}>
+        <GoogleAnalytics measurementId="G-G21BX6W5D0" />
+      </Suspense>
     </html>
   )
 }
