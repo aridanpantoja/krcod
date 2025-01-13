@@ -1,5 +1,6 @@
 'use client'
 
+import { ImageInput } from '@/components/image-input'
 import {
   Dialog,
   DialogClose,
@@ -21,20 +22,13 @@ import { COLORS } from '@/config'
 import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { Button, buttonVariants } from './ui/button'
 import { Textarea } from './ui/textarea'
-import { ImageInput } from '@/components/image-input'
-import { sendGAEvent } from '@next/third-parties/google'
 
 export function QRCodeForm() {
   const { color, setColor, url, setUrl, renderColor } = useQRCodeContext()
 
   return (
     <Dialog>
-      <DialogTrigger
-        asChild
-        onClick={() =>
-          sendGAEvent({ event: 'addInformationClicked', value: 'true' })
-        }
-      >
+      <DialogTrigger asChild>
         <Button variant="notion" size="notion">
           <div>🖋️</div>
           <div>Add information</div>
