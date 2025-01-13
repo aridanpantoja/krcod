@@ -8,7 +8,7 @@ import { QRCodeProvider } from '@/providers/qrcode-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
+import { Plus_Jakarta_Sans as PlusJakartaSans } from 'next/font/google'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
 }
 
-const manrope = Manrope({ subsets: ['latin'] })
+const plusJakartaSans = PlusJakartaSans({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={cn(
           `relative flex h-full flex-col antialiased`,
-          manrope.className,
+          plusJakartaSans.className,
         )}
       >
         <ThemeProvider

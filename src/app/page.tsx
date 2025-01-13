@@ -13,9 +13,7 @@ export default function Home() {
         <div className="flex w-full flex-col items-center justify-center text-pretty text-center md:items-start md:text-start">
           <Logo className="size-24" />
 
-          <h1 className="mb-3 mt-7 text-3xl font-extrabold tracking-tight md:mb-5 md:mt-10 lg:text-4xl">
-            KRCOD
-          </h1>
+          <h1 className="mb-3 mt-7 md:mb-5 md:mt-10">KRCOD</h1>
           <p className="leading-7 text-muted-foreground">
             KRCOD is a tool for create and customize QR Codes.{' '}
             <Link
