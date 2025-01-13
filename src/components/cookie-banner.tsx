@@ -27,9 +27,9 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-x-0 bottom-6 z-50 flex w-full items-center justify-center px-6">
-      <Card className="w-full max-w-prose shadow-lg">
-        <CardContent className="xs:p-6 p-4">
-          <div className="xs:gap-4 flex w-full flex-col items-center gap-3 sm:flex-row">
+      <Card className="w-full max-w-2xl shadow-lg">
+        <CardContent className="p-4">
+          <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:gap-4">
             <CardDescription className="xs:text-sm w-full text-center text-xs sm:text-start">
               We use cookies to enhance your experience. By using our services,
               you agree to this.
