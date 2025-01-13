@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     ],
   },
   icons: '/favicon.ico',
+  generator: 'Next.js',
+  category: 'website',
   metadataBase: new URL(siteConfig.url),
+  manifest: '/manifest.json',
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,

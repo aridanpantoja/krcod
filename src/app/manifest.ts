@@ -6,10 +6,15 @@ export default function manifest(): MetadataRoute.Manifest {
     name: siteConfig.name,
     short_name: siteConfig.name,
     description: siteConfig.description,
+    id: 'krcod',
     start_url: '/',
     display: 'standalone',
     background_color: '#fff',
     theme_color: '#452AAF',
+    categories: ['technology', 'design', 'art'],
+    lang: 'en',
+    dir: 'ltr',
+    prefer_related_applications: false,
     icons: [
       {
         src: '/favicon-96x96.png',
