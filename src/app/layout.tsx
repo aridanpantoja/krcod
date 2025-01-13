@@ -1,6 +1,5 @@
-import { CookieBanner } from '@/components/cookie-banner'
+import { Analytics } from '@/components/analytics'
 import { Footer } from '@/components/footer'
-import { GoogleAnalytics } from '@/components/google-analytics'
 import { Navbar } from '@/components/navbar'
 import { WidthWrapper } from '@/components/width-wrapper'
 import { siteConfig } from '@/config'
@@ -10,7 +9,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
 import './globals.css'
-import { Suspense } from 'react'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -70,12 +69,11 @@ export default function RootLayout({
             <Footer />
           </QRCodeProvider>
         </ThemeProvider>
-        <CookieBanner />
-      </body>
 
-      <Suspense fallback={null}>
-        <GoogleAnalytics measurementId="G-G21BX6W5D0" />
-      </Suspense>
+        <Analytics measurementId="G-G21BX6W5D0" />
+
+        <GoogleAnalytics gaId="G-G21BX6W5D0" />
+      </body>
     </html>
   )
 }
