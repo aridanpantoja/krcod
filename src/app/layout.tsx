@@ -1,4 +1,4 @@
-import { Analytics } from '@/components/analytics'
+import { CookieBanner } from '@/components/cookie-banner'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { WidthWrapper } from '@/components/width-wrapper'
@@ -6,10 +6,10 @@ import { siteConfig } from '@/config'
 import { cn } from '@/lib/utils'
 import { QRCodeProvider } from '@/providers/qrcode-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans as Manrope } from 'next/font/google'
 import './globals.css'
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -67,10 +67,9 @@ export default function RootLayout({
               </WidthWrapper>
             </main>
             <Footer />
+            <CookieBanner />
           </QRCodeProvider>
         </ThemeProvider>
-
-        <Analytics measurementId="G-G21BX6W5D0" />
 
         <GoogleAnalytics gaId="G-G21BX6W5D0" />
       </body>
