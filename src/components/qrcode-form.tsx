@@ -22,9 +22,10 @@ import { COLORS } from '@/config'
 import { useQRCodeContext } from '@/providers/qrcode-provider'
 import { Button, buttonVariants } from './ui/button'
 import { Textarea } from './ui/textarea'
+import { renderColor } from '@/lib/utils'
 
 export function QRCodeForm() {
-  const { color, setColor, url, setUrl, renderColor } = useQRCodeContext()
+  const { color, setColor, url, setUrl, setImage, image } = useQRCodeContext()
 
   return (
     <Dialog>
@@ -65,15 +66,15 @@ export function QRCodeForm() {
               </SelectTrigger>
               <SelectContent>
                 {COLORS.map((color) => (
-                  <SelectItem key={color.value} value={color.value}>
+                  <SelectItem key={color} value={color.toLowerCase()}>
                     <div className="flex items-center gap-2">
                       <div
-                        className="h-4 w-4 rounded-sm"
+                        className="h-4 w-4 rounded-sm border"
                         style={{
-                          backgroundColor: renderColor(color.value),
+                          backgroundColor: renderColor(color.toLowerCase()),
                         }}
                       ></div>
-                      <span>{color.name}</span>
+                      <span>{color}</span>
                     </div>
                   </SelectItem>
                 ))}
@@ -82,7 +83,28 @@ export function QRCodeForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="image-input">Select your logo</Label>
+            <div className="relative">
+              <Label className="inline-block" htmlFor="image-input">
+                Select your logo
+              </Label>
+
+              {image.src && (
+                <Button
+                  variant="notion"
+                  size="notion"
+                  className="absolute bottom-1/2 right-0 w-fit translate-y-1/2 items-center p-0 text-xs hover:bg-transparent"
+                  onClick={() => {
+                    setImage({
+                      src: '',
+                      name: '',
+                    })
+                  }}
+                >
+                  Clear 🗑️
+                </Button>
+              )}
+            </div>
+
             <ImageInput />
           </div>
 
