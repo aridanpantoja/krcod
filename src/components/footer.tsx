@@ -15,6 +15,13 @@ export function Footer() {
             >
               aridan
             </Link>
+            . Illustrations by{' '}
+            <Link
+              href="https://popsy.co/illustrations"
+              className="text-primary underline underline-offset-4"
+            >
+              popsy
+            </Link>
             . The source code is available on{' '}
             <Link
               href={siteConfig.links.github}
