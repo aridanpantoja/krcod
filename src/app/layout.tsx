@@ -64,7 +64,7 @@ export default function RootLayout({
         >
           <QRCodeProvider>
             <Navbar />
-            <main className="mx-auto my-20 w-full max-w-screen-sm grow">
+            <main className="mx-auto my-20 w-full max-w-(--breakpoint-sm) grow">
               <WidthWrapper>
                 <div className="flex flex-col gap-10">{children}</div>
               </WidthWrapper>
